@@ -11,7 +11,7 @@ module.exports = {
     asyncWebAssembly: true,
   },
   entry: {
-    index: "./js/index.js",
+    index: "./pkg/index.js",
   },
   output: {
     path: dist,
@@ -21,7 +21,9 @@ module.exports = {
     static: dist,
   },
   plugins: [
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: "index.html"
+    }),
     new WasmPackPlugin({
       crateDirectory: __dirname,
     }),
